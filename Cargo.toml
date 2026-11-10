@@ -1,0 +1,48 @@
+[workspace]
+members = [".", "crates/xfer-common", "crates/xfer-xymodem", "crates/xfer-zmodem", "crates/xfer-kermit"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "MIT"
+version = "0.1.0"
+
+[package]
+name = "retro-term"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "A fast terminal emulator with full ANSI support and XMODEM/YMODEM/ZMODEM/Kermit file transfer"
+
+[dependencies]
+xfer-common = { path = "crates/xfer-common" }
+xfer-xymodem = { path = "crates/xfer-xymodem" }
+xfer-zmodem = { path = "crates/xfer-zmodem" }
+xfer-kermit = { path = "crates/xfer-kermit" }
+eframe = "0.37.0"
+vte = { version = "0.15.0", default-features = false }
+unicode-width = "0.2.3"
+serialport = "4.10.1"
+portable-pty = "0.9.0"
+anyhow = "1.0.104"
+directories = "6.0.0"
+toml = "1.2.1"
+rfd = "0.18.0"
+log = "0.4.35"
+env_logger = "0.11.11"
+crossbeam-channel = "0.5.17"
+clap = { version = "4.6.7", features = ["derive"] }
+serde = { version = "1.0.229", features = ["derive"] }
+arboard = "3.7.0"
+png = "0.18.1"
+egui = "0.37.0"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
+[profile.dev.package."*"]
+opt-level = 2
+
+[dev-dependencies]
+tempfile = "3.27.0"

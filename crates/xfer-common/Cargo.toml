@@ -1,0 +1,9 @@
+[package]
+name = "xfer-common"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Shared port/progress/CRC plumbing for retro-term file transfer protocols"
+
+[dependencies]
+thiserror = "2"

@@ -1,0 +1,15 @@
+[package]
+name = "xfer-kermit"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+xfer-common = { path = "../xfer-common" }
+
+[dev-dependencies]
+tempfile = "3"
+
+# PTY plumbing for the C-Kermit interoperability tests.
+[target.'cfg(unix)'.dev-dependencies]
+libc = "0.2"

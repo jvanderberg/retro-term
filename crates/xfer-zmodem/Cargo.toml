@@ -1,0 +1,11 @@
+[package]
+name = "xfer-zmodem"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+xfer-common = { path = "../xfer-common" }
+
+[dev-dependencies]
+tempfile = "3"
